@@ -12,6 +12,7 @@ defmodule Techraffle.Application do
       Techraffle.Repo,
       {DNSCluster, query: Application.get_env(:techraffle, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Techraffle.PubSub},
+      TechraffleWeb.Presence,
       # Start the Finch HTTP client for sending emails
       {Finch, name: Techraffle.Finch},
       # Start a worker by calling: Techraffle.Worker.start_link(arg)
