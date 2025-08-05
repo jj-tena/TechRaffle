@@ -7,6 +7,19 @@
 # General application configuration
 import Config
 
+config :techraffle, :scopes,
+  user: [
+    default: true,
+    module: Techraffle.Accounts.Scope,
+    assign_key: :current_scope,
+    access_path: [:user, :id],
+    schema_key: :user_id,
+    schema_type: :id,
+    schema_table: :users,
+    test_data_fixture: Techraffle.AccountsFixtures,
+    test_setup_helper: :register_and_log_in_user
+  ]
+
 config :techraffle,
   ecto_repos: [Techraffle.Repo],
   generators: [timestamp_type: :utc_datetime]
@@ -21,15 +34,6 @@ config :techraffle, TechraffleWeb.Endpoint,
   ],
   pubsub_server: Techraffle.PubSub,
   live_view: [signing_salt: "bM9QGwrO"]
-
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :techraffle, Techraffle.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
