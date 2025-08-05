@@ -48,7 +48,7 @@ defmodule Techraffle.Admin do
 
     case raffle.tickets do
       [] ->
-        {:error, "No tickets to draw"}
+        {:error, "No hay tickets entre los que elegir un ganador"}
       tickets ->
         winner = Enum.random(tickets)
         {:ok, _raffle} = update_raffle(raffle, %{
@@ -58,7 +58,7 @@ defmodule Techraffle.Admin do
   end
 
   def draw_winner(%Raffle{}) do
-    {:error, "Raffle must be closed to draw a winner"}
+    {:error, "El sorteo debe estar cerrado para elegir un ganador"}
   end
 
 end
