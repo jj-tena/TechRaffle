@@ -1,0 +1,9 @@
+alias Techraffle.Repo
+alias Techraffle.Raffles
+alias Techraffle.Raffles.Raffle
+alias Techraffle.Admin
+alias Techraffle.Charities.Charity
+alias Techraffle.Accounts.User
+alias Techraffle.Tickets.Ticket
+import Ecto.Query
+import Ecto.Changeset
